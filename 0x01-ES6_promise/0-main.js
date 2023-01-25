@@ -1,5 +1,3 @@
-import guardrail from './9-try';
-import divideFunction from './8-try';
+import handleProfileSignup from "./3-all";
 
-console.log(guardrail(() => divideFunction(10, 2)));
-console.log(guardrail(() => divideFunction(10, 0)));
+handleProfileSignup();
