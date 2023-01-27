@@ -105,3 +105,18 @@ This function should create and return an array named *queue*.
 When the *mathFunction* function is executed, the value returned by the function should be appended to the queue. If this function throws an error, the error message should be appended to the queue. In every case, the message *Guardrail was processed* should be added to the queue.
 
 **File**: [9-try.js](./9-try.js)
+
+**10. Await/Async**
+
+Import `uploadPhoto` and `createUser` from utils.js
+
+Write an async function named `asyncUploadUser` that will call these two functions and return an object with the following format:
+
+`{
+  photo: response_from_uploadPhoto_function,
+  user: response_from_createUser_function,
+}`
+
+If one of the async function fails, return an empty object.
+
+**File**: [100-await.js](./100-await.js)
