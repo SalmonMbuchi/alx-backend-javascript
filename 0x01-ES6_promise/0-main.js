@@ -1,8 +1,4 @@
-import asyncUploadUser from "./100-await";
+import handleResponseFromAPI from "./2-then";
 
-const test = async () => {
-    const value = await asyncUploadUser();
-    console.log(value);
-};
-
-test();
+const promise = Promise.resolve();
+handleResponseFromAPI(promise);
