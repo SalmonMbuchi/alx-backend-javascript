@@ -1,5 +1,7 @@
 export default function cleanSet(aSet, startString) {
-  if aSet.has(startString) {
-    
+  const newSet = new Set();
+  if (aSet.has(startString)) {
+    return newSet.add(startString);
   }
+  return newSet;
 }
