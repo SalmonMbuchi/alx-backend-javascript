@@ -1,5 +1,4 @@
 export default function hasValuesFromArray(obj1, obj2) {
-  obj2.forEach((element) => {
-    return obj1.has(element);
-  });
+  const every = ((elem) => obj1.has(elem));
+  return obj2.every(every);
 }
