@@ -1,32 +1,44 @@
 interface Student {
   firstName: string;
   lastName: string;
+  age: number;
   location: string;
 }
 
 const studentOne: Student = {
   firstName: "John",
   lastName: "Doe",
+  age: 45,
   location: "Nairobi"
 }
 const studentTwo: Student = {
   firstName: "Harry",
   lastName: "Potter",
+  age: 24,
   location: "Hogwarts"
 }
-let studentsList: object[] = [studentOne, studentTwo];
-// Generate table head
-function generateTableHead(table, data) {
-  let thead = table.createTHead();
-  let row = thead.insertRow();
-  for (let key of data) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
-  }
-}
+const studentsList: Student[] = [studentOne, studentTwo];
 
-let table = document.querySelector("table");
-let data = Object.keys(studentsList);
-generateTableHead(table, data);
+const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
+const table: HTMLTableElement = document.createElement("table");
+const thead: HTMLTableSectionElement = document.createElement("thead");
+const tbody: HTMLTableSectionElement = document.createElement("tbody");
+const rowHead: HTMLTableRowElement = thead.insertRow(0);
+const cell1Head: HTMLTableCellElement = rowHead.insertCell(0);
+const cell2Head: HTMLTableCellElement = rowHead.insertCell(1);
+
+cell1Head.innerHTML = "firstName";
+cell2Head.innerHTML = "location";
+table.append(thead);
+
+studentsList.forEach((student) => {
+  const row: HTMLTableRowElement = tbody.insertRow(0);
+  const cell1: HTMLTableCellElement = row.insertCell(0);
+  const cell2: HTMLTableCellElement = row.insertCell(1);
+
+  cell1.innerHTML = student.firstName;
+  cell2.innerHTML = student.location;
+});
+
+table.append(tbody);
+body.append(table);
