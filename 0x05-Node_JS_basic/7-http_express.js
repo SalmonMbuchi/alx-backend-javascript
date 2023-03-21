@@ -6,10 +6,12 @@ const app = express();
 const port = 1245;
 
 app.get('/', (req, res) => {
+  res.set('Content-Type', 'text/plain');
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
+  res.set('Content-Type', 'text/plain');
   const body = ['This is the list of our students'];
   fs.readFile(db, 'utf-8', (error, data) => {
     if (!error) {
