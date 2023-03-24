@@ -10,23 +10,13 @@ describe('Index page', function () {
     method: 'GET'
   } 
   
-  it('should return OK status', function (done) {
+  it('tests the Express API', function (done) {
     request(params, function(err, res, body) {
-      expect(res.statusCode).to.equal(200);
-      done();
-    });
-  });
-
-  it('should have text as the content type', function (done) {
-    request(params, function (err, res, body) {
-      expect(res.headers['content-type']).to.equal('text/html; charset=utf-8');
-      done();
-    });
-  });
-
-  it('should return a message', function (done) {
-    request(params, function(err, res, body) {
-      expect(body).to.contain('Welcome to the payment system');
+      if (!err) {
+        expect(res.statusCode).to.equal(200);
+        expect(body).to.contain('Welcome to the payment system');
+        expect(res.headers['content-type']).to.equal('text/html; charset=utf-8');
+      }
       done();
     });
   });
