@@ -5,7 +5,7 @@ const {describe, it} = require('mocha');
 
 
 describe('Index page', function () {
-  it('should return OK status', function (done) {
+  it('test Express API', function (done) {
     request.get('http:localhost:7865/', function(err, res, body) {
       if (!err) {
         expect(res.statusCode).to.equal(200);
