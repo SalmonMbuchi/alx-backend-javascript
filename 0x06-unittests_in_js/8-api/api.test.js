@@ -10,6 +10,12 @@ describe('Index page', function () {
     method: 'GET'
   } 
   
+  it('tests that GET / exists', function (done) {
+    request.get('https://localhost:7865', function (err, res) {
+      if (!err) expect (res.statusCode).to.equal(200);
+    })
+    done();
+  })
   it('tests the Express API', function (done) {
     request(params, function(err, res, body) {
       if (!err) {
